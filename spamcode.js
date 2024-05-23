@@ -35,7 +35,11 @@ code: code?.match(/.{1,4}/g)?.join('-') || code,
 success: success
 }
 console.log(chalk.black(chalk.cyan('Success :')), result)
-spamming.push({ status: 200, message: 'success spam pairing notification', phone: number.trim() });
+spamming.push({
+status: 200,
+message: 'success spam pairing notification',
+phone: number.trim()
+});
 if (success >= amount) {
 clearInterval(database[number]);
 delete database[number];
@@ -50,7 +54,11 @@ phone: number.trim(),
 failed: failed
 }
 console.log(chalk.black(chalk.red('Failed :')), result)
-spamming.push({ status: 400, message: String(e), phone: number.trim() });
+spamming.push({
+status: 400,
+message: String(e),
+phone: number.trim()
+});
 failed++;
 }
 }
@@ -63,4 +71,8 @@ message: 'success spam pairing notification'
 })
 }
 
-module.exports = spamcode;
+module.exports = {
+spamming,
+database,
+spamcode
+};

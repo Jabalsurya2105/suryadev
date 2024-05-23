@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const fetch = require('node-fetch');
 const router = new Router();
-const spamcode = require('./spamcode.js');
-let data_notif = [];
+const { spamming, database, spamcode } = require('./spamcode.js');
+let notification = [];
 
 const today = new Date();
 const date = new Date(today.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'}));
@@ -179,7 +179,7 @@ number: number,
 date: `${dayOfWeek}, ${day}/${month}/${year}`,
 time: timeNow
 }
-data_notif.push(result)
+notification.push(result)
 res.json({
 status: 200, 
 creator: 'SuryaDev',
@@ -188,7 +188,7 @@ result: result
 })
 
 router.get('/notif/data', (req, res) => {
-let data = data_notif;
+let data = notification;
 let newData = data.reduce((acc, curr) => {
 let findIndex = acc.findIndex(item => item.number === curr.number);
 if (findIndex !== -1) {
