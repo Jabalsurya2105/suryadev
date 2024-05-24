@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const fetch = require('node-fetch');
 const router = new Router();
-const { spamming, database, spamcode } = require('./spamcode.js');
 let notification = [];
 
 const today = new Date();
@@ -62,105 +61,6 @@ creator: 'SuryaDev',
 result: result
 });
 })
-
-router.get('/api/spamcode', async (req, res) => {
-const { number, amount } = req.query;
-if (!number) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'Number parameter is required'
-});
-if (!amount) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'Amount parameter is required'
-});
-if (isNaN(number)) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'Invalid number!'
-});
-if (!number.startsWith('62')) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'Nomor harus diawali dengan 62'
-});
-if (number.length > 15) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'Invalid format!'
-});
-if (isNaN(amount)) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'Invalid amount!'
-});
-if (amount > 100) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'Jumlah maksimal spam adalah 100'
-});
-if ((number in database)) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'target already spammed'
-});
-const result = await spamcode(number, amount);
-res.json(result);
-})
-
-router.get('/api/spamcode/data', (req, res) => {
-let data = spamming;
-let newData = data.reduce((acc, curr) => {
-let findIndex = acc.findIndex(item => item.phone === curr.phone && item.status == 200 && curr.status == 200);
-if (findIndex !== -1) {
-acc[findIndex].total += 1;
-} else {
-acc.push({ ...curr, total: 1 });
-}
-return acc;
-}, []);
-res.json({
-status: 200, 
-creator: 'SuryaDev',
-result: newData
-});
-});
-
-router.get('/api/spamcode/stop', (req, res) => {
-const { number } = req.query;
-if (number && !isNaN(number)) {
-if (!(number in database)) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'target is not spammed'
-});
-clearInterval(database[number]);
-delete database[number];
-return res.json({
-status: 200,
-creator: 'SuryaDev',
-message: `success stop spamming pairing kode to ${number}`
-});
-} else {
-const data = Object.keys(database);
-if (data.length == 0) return res.json({
-status: 200,
-creator: 'SuryaDev',
-message: 'no data'
-});
-for (let target of data) {
-if (!(target in database)) continue;
-clearInterval(database[target]);
-delete database[target];
-}
-res.json({
-status: 200,
-creator: 'SuryaDev',
-message: `success stop spamming pairing kode to ${data.length} target`
-});
-}
-});
 
 router.get('/notif/send', async (req, res) => {
 const { number } = req.query;
