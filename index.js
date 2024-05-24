@@ -13,7 +13,7 @@ app.set('port', process.env.PORT || 4000);
 app.enable('trust proxy');
 app.set('json spaces', 2)
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-//app.use(express.static(path.join(__dirname, 'assets')));
+app.use(express.static(path.join(__dirname, 'assets')));
 app.use(cors())
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
