@@ -1,23 +1,20 @@
 {
-  "name": "spam-pairing-kode",
+  "name": "suryadev",
   "version": "1.0.0",
-  "description": "This is a script for spam pairing codes through websites",
-  "main": "index.js",
-  "type": "commonjs",
+  "private": true,
   "scripts": {
-    "start": "node index.js"
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "vercel --prod"
   },
-  "keywords": [],
-  "author": "SuryaDev",
-  "license": "ISC",
   "dependencies": {
-    "@adiwajshing/keyed-db": "^0.2.4",
-    "@whiskeysockets/baileys": "github:nstar-y/Bail",
-    "@hapi/boom": "^10.0.0",
-    "chalk": "^4.1.2",
     "cors": "^2.8.5",
     "ejs": "^3.1.9",
-    "express": "^4.18.2",
+    "core-js": "^3.19.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.17.2",
     "fs": "^0.0.1-security",
     "html": "^1.0.0",
     "http": "0.0.1-security",
@@ -25,5 +22,6 @@
     "server": "^1.0.27",
     "socket.io": "^2.3.0",
     "pino": "^8.11.0"
-  }
+  },
+  "devDependencies": {}
 }

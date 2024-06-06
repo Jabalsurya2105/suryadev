@@ -1,10 +1,16 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import path from 'path'
+import ejs from 'ejs'
+import { fileURLToPath } from 'url';
 
-const apiRoutes = require('./script.js');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import apiRoutes from './script.js';
+
 const app = express();
-let database = [];
+var database = [];
 
 // settings
 app.set('port', process.env.PORT || 4000);
@@ -13,7 +19,6 @@ app.set('port', process.env.PORT || 4000);
 app.enable('trust proxy');
 app.set('json spaces', 2)
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
-//app.use(express.static(path.join(__dirname, 'assets')));
 app.use(cors())
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -27,10 +32,7 @@ res.render('home')
 
 app.get('/messages', (req, res) => {
 const data = database;
-res.json({
-status: 200,
-result: data
-});
+res.json({ status: 200, result: data });
 });
 
 app.post('/messages', (req, res) => {
