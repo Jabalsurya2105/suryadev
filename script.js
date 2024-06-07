@@ -1,7 +1,8 @@
 import { Router } from 'express';
 
 const router = new Router();
-var notification = [];
+let pathname = 'data.json';
+let database = JSON.parse(fs.readFileSync(pathname))
 
 const today = new Date();
 const date = new Date(today.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'}));
@@ -37,7 +38,8 @@ name: name,
 date: `${dayOfWeek}, ${day}/${month}/${year}`,
 time: timeNow
 }
-notification.push(result)
+database.push(result)
+fs.writeFileSync(pathname, JSON.stringify(database, null, 2))
 res.json({
 status: 200, 
 creator: 'SuryaDev',
@@ -46,7 +48,7 @@ result: result
 })
 
 router.get('/notif/data', (req, res) => {
-let data = notification;
+let data = database;
 let newData = data.reduce((acc, curr) => {
 let findIndex = acc.findIndex(item => item.number === curr.number);
 if (findIndex !== -1) {

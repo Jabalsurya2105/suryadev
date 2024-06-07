@@ -3,11 +3,10 @@ import cors from 'cors';
 import path from 'path'
 import ejs from 'ejs'
 import { fileURLToPath } from 'url';
+import apiRoutes from './script.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-import apiRoutes from './script.js';
 
 const app = express();
 var database = [];
