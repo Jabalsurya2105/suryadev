@@ -15,11 +15,16 @@ const dayOfWeek = today.toLocaleDateString('id-ID', { weekday: 'long' });
 const timeNow = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
 
 router.get('/notif/send', async (req, res) => {
-const { number } = req.query;
+const { number, name } = req.query;
 if (!number) return res.status(400).json({
 status: 400,
 creator: 'SuryaDev',
 message: 'number parameter is required'
+});
+if (!name) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'name parameter is required'
 });
 if (isNaN(number)) return res.status(400).json({
 status: 400,
@@ -28,6 +33,7 @@ message: 'invalid number!'
 });
 const result = {
 number: number,
+name: name,
 date: `${dayOfWeek}, ${day}/${month}/${year}`,
 time: timeNow
 }
