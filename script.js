@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import fs from 'fs';
 
 const router = new Router();
 let pathname = 'data.json';
