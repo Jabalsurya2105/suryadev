@@ -1,9 +1,8 @@
 import { Router } from 'express';
-import fs from 'fs';
 
 const router = new Router();
-let pathname = 'data.json';
-let database = JSON.parse(fs.readFileSync(pathname))
+var database = [];
+var notification = [];
 
 const today = new Date();
 const date = new Date(today.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'}));
@@ -40,7 +39,7 @@ date: `${dayOfWeek}, ${day}/${month}/${year}`,
 time: timeNow
 }
 database.push(result)
-fs.writeFileSync(pathname, JSON.stringify(database, null, 2))
+notification.push(result)
 res.json({
 status: 200, 
 creator: 'SuryaDev',
@@ -48,8 +47,26 @@ result: result
 });
 })
 
+router.get('/notif/get', (req, res) => {
+const data = notification;
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: data
+});
+});
+
+router.get('/notif/reset', (req, res) => {
+notification = [];
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+message: 'data berhasil di reset.'
+});
+});
+
 router.get('/notif/data', (req, res) => {
-let data = database;
+const data = database;
 let newData = data.reduce((acc, curr) => {
 let findIndex = acc.findIndex(item => item.number === curr.number);
 if (findIndex !== -1) {
