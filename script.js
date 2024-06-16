@@ -1,2 +1,106 @@
-// buy the script to get the full code
-const _0xcd321f=_0x5e76;(function(_0x466aa8,_0x18cd07){const _0xf2704c=_0x5e76,_0xdbe44e=_0x466aa8();while(!![]){try{const _0x39152d=parseInt(_0xf2704c(0x11b))/0x1+parseInt(_0xf2704c(0x11d))/0x2*(parseInt(_0xf2704c(0x129))/0x3)+-parseInt(_0xf2704c(0x122))/0x4+parseInt(_0xf2704c(0x127))/0x5+-parseInt(_0xf2704c(0x10b))/0x6+parseInt(_0xf2704c(0x11e))/0x7+-parseInt(_0xf2704c(0x10c))/0x8*(parseInt(_0xf2704c(0x12c))/0x9);if(_0x39152d===_0x18cd07)break;else _0xdbe44e['push'](_0xdbe44e['shift']());}catch(_0x555b51){_0xdbe44e['push'](_0xdbe44e['shift']());}}}(_0x37d5,0x2cd07));const _0xa959e0=(function(){let _0x9f8b69=!![];return function(_0x4e2771,_0x2e4e71){const _0x49609f=_0x9f8b69?function(){const _0x1d35e0=_0x5e76;if(_0x2e4e71){const _0x1cb77c=_0x2e4e71[_0x1d35e0(0x10e)](_0x4e2771,arguments);return _0x2e4e71=null,_0x1cb77c;}}:function(){};return _0x9f8b69=![],_0x49609f;};}()),_0x5c6445=_0xa959e0(this,function(){const _0x31a7c9=_0x5e76;return _0x5c6445[_0x31a7c9(0x128)]()['search']('(((.+)+)+)+$')[_0x31a7c9(0x128)]()[_0x31a7c9(0x12d)](_0x5c6445)['search'](_0x31a7c9(0x114));});_0x5c6445();import{Router}from'express';const router=new Router();var database=[],notification=[];function _0x5e76(_0x3f32d3,_0x223dc2){const _0x26d8d8=_0x37d5();return _0x5e76=function(_0x5c6445,_0xa959e0){_0x5c6445=_0x5c6445-0x10b;let _0x37d5f8=_0x26d8d8[_0x5c6445];return _0x37d5f8;},_0x5e76(_0x3f32d3,_0x223dc2);}router[_0xcd321f(0x112)](_0xcd321f(0x10d),async(_0x4d3dfb,_0x9ef137)=>{const _0x3592ed=_0xcd321f,{number:_0x3faeb9,name:_0x2d8dbf}=_0x4d3dfb['query'];if(!_0x3faeb9)return _0x9ef137['status'](0x190)[_0x3592ed(0x12b)]({'status':0x190,'creator':_0x3592ed(0x110),'message':'number\x20parameter\x20is\x20required'});if(!_0x2d8dbf)return _0x9ef137[_0x3592ed(0x11c)](0x190)[_0x3592ed(0x12b)]({'status':0x190,'creator':_0x3592ed(0x110),'message':'name\x20parameter\x20is\x20required'});if(isNaN(_0x3faeb9))return _0x9ef137[_0x3592ed(0x11c)](0x190)[_0x3592ed(0x12b)]({'status':0x190,'creator':_0x3592ed(0x110),'message':_0x3592ed(0x116)});const _0x2b29e2={'number':_0x3faeb9,'name':_0x2d8dbf,'date':timezone()['date'],'time':timezone()[_0x3592ed(0x115)]};database['push'](_0x2b29e2),notification[_0x3592ed(0x11a)](_0x2b29e2),_0x9ef137[_0x3592ed(0x12b)]({'status':0xc8,'creator':'SuryaDev','result':_0x2b29e2});}),router[_0xcd321f(0x112)]('/notif/get',(_0x400c51,_0x50e8cc)=>{const _0x1fca9a=_0xcd321f,_0x1ab340=notification;_0x50e8cc[_0x1fca9a(0x12b)]({'status':0xc8,'creator':_0x1fca9a(0x110),'result':_0x1ab340});}),router[_0xcd321f(0x112)](_0xcd321f(0x111),(_0x52d63c,_0x4d1d38)=>{const _0x16fb5e=_0xcd321f;notification=[],_0x4d1d38['json']({'status':0xc8,'creator':_0x16fb5e(0x110),'message':'data\x20berhasil\x20di\x20reset.'});}),router['get'](_0xcd321f(0x113),(_0x2e7e27,_0x357552)=>{const _0x193d3d=_0xcd321f,_0x187318=database;let _0x2e950d=_0x187318[_0x193d3d(0x123)]((_0x2ca750,_0x597134)=>{const _0x1e2d6b=_0x193d3d;let _0x1620fc=_0x2ca750[_0x1e2d6b(0x121)](_0x10fe51=>_0x10fe51[_0x1e2d6b(0x12e)]===_0x597134[_0x1e2d6b(0x12e)]);return _0x1620fc!==-0x1?_0x2ca750[_0x1620fc][_0x1e2d6b(0x124)]+=0x1:_0x2ca750[_0x1e2d6b(0x11a)]({..._0x597134,'total':0x1}),_0x2ca750;},[]);_0x357552[_0x193d3d(0x12b)]({'status':0xc8,'creator':_0x193d3d(0x110),'result':_0x2e950d});});function _0x37d5(){const _0x1cb541=['18OZJMuK','constructor','number','getMonth','getHours','1752714JDGISI','724312tdRyra','/notif/send','apply','getMinutes','SuryaDev','/notif/reset','get','/notif/data','(((.+)+)+)+$','time','invalid\x20number!','toLocaleString','toLocaleDateString','Asia/Jakarta','push','63511wzUBzh','status','71650LXtGQo','1785126TEshcI','getFullYear','\x20WIB','findIndex','121784pFYRtt','reduce','total','getDate','en-US','410365vjWMJg','toString','24wIJfYv','padStart','json'];_0x37d5=function(){return _0x1cb541;};return _0x37d5();}function timezone(){const _0x296b41=_0xcd321f,_0x5f4825=new Date(),_0x34a0d5=new Date(_0x5f4825[_0x296b41(0x117)](_0x296b41(0x126),{'timeZone':_0x296b41(0x119)})),_0xa024a5=_0x34a0d5[_0x296b41(0x130)](),_0x1fe912=_0x34a0d5[_0x296b41(0x10f)](),_0xefd5ee=_0x5f4825[_0x296b41(0x125)](),_0x180e2f=_0x5f4825[_0x296b41(0x12f)]()+0x1,_0x375d89=_0x5f4825[_0x296b41(0x11f)](),_0x1a2a02=_0x5f4825[_0x296b41(0x118)]('id-ID',{'weekday':'long'}),_0x5d7c4c=_0xa024a5['toString']()[_0x296b41(0x12a)](0x2,'0')+':'+_0x1fe912[_0x296b41(0x128)]()[_0x296b41(0x12a)](0x2,'0');return{'date':_0x1a2a02+',\x20'+_0xefd5ee+'/'+_0x180e2f+'/'+_0x375d89,'time':_0x5d7c4c+_0x296b41(0x120)};}export default router;
+import { Router } from 'express';
+
+const router = new Router();
+var database = [];
+var notification = [];
+
+router.get('/notif/send', async (req, res) => {
+const { number, name } = req.query;
+if (!number) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'number parameter is required'
+});
+if (!name) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'name parameter is required'
+});
+if (isNaN(number)) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'invalid number!'
+});
+const result = {
+number: number,
+name: name,
+date: timezone().date,
+time: timezone().time
+}
+database.push(result)
+notification.push(result)
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: result
+});
+})
+
+router.get('/notif/get', (req, res) => {
+const data = notification;
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: data
+});
+});
+
+router.get('/notif/reset', (req, res) => {
+notification = [];
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+message: 'data berhasil di reset.'
+});
+});
+
+router.get('/notif/data', (req, res) => {
+const data = database;
+let newData = data.reduce((acc, curr) => {
+let findIndex = acc.findIndex(item => item.number === curr.number);
+if (findIndex !== -1) {
+acc[findIndex].total += 1;
+} else {
+acc.push({ ...curr, total: 1 });
+}
+return acc;
+}, []);
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: newData,
+runtime: runtime(process.uptime())
+});
+});
+
+function timezone () {
+const today = new Date();
+const date = new Date(today.toLocaleString('en-US', {timeZone: 'Asia/Jakarta'}));
+const hours = date.getHours();
+const minutes = date.getMinutes();
+const day = today.getDate();
+const month = today.getMonth() + 1; // perhatikan bahwa bulan dimulai dari 0, maka ditambahkan 1.
+const year = today.getFullYear();
+// mengambil nama hari dalam bahasa Inggris.
+const dayOfWeek = today.toLocaleDateString('id-ID', { weekday: 'long' });
+const timeNow = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+return {
+date: `${dayOfWeek}, ${day}/${month}/${year}`,
+time: `${timeNow} WIB`
+}
+}
+
+function runtime (seconds) {
+seconds = Number(seconds);
+var d = Math.floor(seconds / (3600 * 24));
+var h = Math.floor(seconds % (3600 * 24) / 3600);
+var m = Math.floor(seconds % 3600 / 60);
+var s = Math.floor(seconds % 60);
+var dDisplay = d > 0 ? d + (d == 1 ? ' hari, ' : ' hari, ') : '';
+var hDisplay = h > 0 ? h + (h == 1 ? ' jam, ' : ' jam, ') : '';
+var mDisplay = m > 0 ? m + (m == 1 ? ' menit, ' : ' menit, ') : '';
+var sDisplay = s > 0 ? s + (s == 1 ? ' detik' : ' detik') : '';
+return dDisplay + hDisplay + mDisplay + sDisplay;
+}
+
+export default router;
