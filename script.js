@@ -3,7 +3,10 @@ import { Router } from 'express';
 const router = new Router();
 var database = [];
 var notification = [];
+var databaseVip = [];
+var notificationVip = [];
 
+/* NOTIFIKASI SCRIPT BIASA */
 router.get('/notif/send', async (req, res) => {
 const { number, name } = req.query;
 if (!number) return res.status(400).json({
@@ -56,6 +59,76 @@ message: 'data berhasil di reset.'
 
 router.get('/notif/data', (req, res) => {
 const data = database;
+let newData = data.reduce((acc, curr) => {
+let findIndex = acc.findIndex(item => item.number === curr.number);
+if (findIndex !== -1) {
+acc[findIndex].total += 1;
+} else {
+acc.push({ ...curr, total: 1 });
+}
+return acc;
+}, []);
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: newData,
+runtime: runtime(process.uptime())
+});
+});
+
+/* NOTIFIKASI SCRIPT VIP */
+router.get('/notif-vip/send', async (req, res) => {
+const { number, name } = req.query;
+if (!number) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'number parameter is required'
+});
+if (!name) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'name parameter is required'
+});
+if (isNaN(number)) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'invalid number!'
+});
+const result = {
+number: number,
+name: name,
+date: timezone().date,
+time: timezone().time
+}
+databaseVip.push(result)
+notificationVip.push(result)
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: result
+});
+})
+
+router.get('/notif-vip/get', (req, res) => {
+const data = notificationVip;
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: data
+});
+});
+
+router.get('/notif-vip/reset', (req, res) => {
+notificationVip = [];
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+message: 'data berhasil di reset.'
+});
+});
+
+router.get('/notif-vip/data', (req, res) => {
+const data = databaseVip;
 let newData = data.reduce((acc, curr) => {
 let findIndex = acc.findIndex(item => item.number === curr.number);
 if (findIndex !== -1) {
