@@ -1,4 +1,4 @@
-import path from 'path';
+import { basename } from 'path';
 import { Router } from 'express';
 
 const router = new Router();
@@ -175,7 +175,7 @@ const result = {
 number: number,
 date: timezone().date,
 time: timezone().time,
-path: path.basename(path),
+path: basename(path),
 code: code
 }
 plugins.push(result)
