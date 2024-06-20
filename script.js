@@ -1,4 +1,3 @@
-import util from 'util';
 import path from 'path';
 import { Router } from 'express';
 
@@ -177,7 +176,7 @@ number: number,
 date: timezone().date,
 time: timezone().time,
 path: path.basename(path),
-code: util.format(code)
+code: code
 }
 plugins.push(result)
 res.json({
