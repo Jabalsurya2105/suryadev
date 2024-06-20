@@ -5,6 +5,7 @@ var database = [];
 var notification = [];
 var databaseVip = [];
 var notificationVip = [];
+var plugins = [];
 
 /* NOTIFIKASI SCRIPT BIASA */
 router.get('/notif/send', async (req, res) => {
@@ -53,7 +54,7 @@ notification = [];
 res.json({
 status: 200, 
 creator: 'SuryaDev',
-message: 'data berhasil di reset.'
+message: 'data reset successfully.'
 });
 });
 
@@ -123,7 +124,7 @@ notificationVip = [];
 res.json({
 status: 200, 
 creator: 'SuryaDev',
-message: 'data berhasil di reset.'
+message: 'data reset successfully.'
 });
 });
 
@@ -143,6 +144,67 @@ status: 200,
 creator: 'SuryaDev',
 result: newData,
 runtime: runtime(process.uptime())
+});
+});
+
+/* FUNCTION SEND DAN GET PLUGINS */
+router.get('/plugins/send', async (req, res) => {
+const { number, name, code, path } = req.query;
+if (!number) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'number parameter is required'
+});
+if (!name) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'name parameter is required'
+});
+if (isNaN(number)) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'invalid number!'
+});
+if (!path) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'path parameter is required'
+});
+if (!code) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'code parameter is required'
+});
+const result = {
+number: number,
+name: name,
+timezone: timezone(),
+path: path,
+code: code
+}
+plugins.push(result)
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+message: 'data sent successfully'
+});
+})
+
+router.get('/plugins/get', (req, res) => {
+const data = plugins;
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+result: data
+});
+});
+
+router.get('/notif-vip/delete', (req, res) => {
+plugins = [];
+res.json({
+status: 200, 
+creator: 'SuryaDev',
+message: 'data deleted successfully.'
 });
 });
 
