@@ -1,3 +1,5 @@
+import util from 'util';
+import path from 'path';
 import { Router } from 'express';
 
 const router = new Router();
@@ -149,16 +151,11 @@ runtime: runtime(process.uptime())
 
 /* FUNCTION SEND DAN GET PLUGINS */
 router.get('/plugins/send', async (req, res) => {
-const { number, name, code, path } = req.query;
+const { number, path, code } = req.query;
 if (!number) return res.status(400).json({
 status: 400,
 creator: 'SuryaDev',
 message: 'number parameter is required'
-});
-if (!name) return res.status(400).json({
-status: 400,
-creator: 'SuryaDev',
-message: 'name parameter is required'
 });
 if (isNaN(number)) return res.status(400).json({
 status: 400,
@@ -177,10 +174,10 @@ message: 'code parameter is required'
 });
 const result = {
 number: number,
-name: name,
-timezone: timezone(),
-path: path,
-code: code
+date: timezone().date,
+time: timezone().time,
+path: path.basename(path),
+code: util.format(code)
 }
 plugins.push(result)
 res.json({
