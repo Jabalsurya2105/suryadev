@@ -195,7 +195,7 @@ result: data
 });
 });
 
-router.get('/notif-vip/delete', (req, res) => {
+router.get('/plugins/delete', (req, res) => {
 plugins = [];
 res.json({
 status: 200, 
