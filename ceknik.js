@@ -19,7 +19,7 @@ function T(e, t) {
 let n; const r = typeof e; return "boolean" === r ? +e : "string" === r ? (n = parseInt(e, t || 10), isNaN(n) || !isFinite(n) ? 0 : n) : "number" === r && isFinite(e) ? 0 | e : 0
 }
 
-function cekNIK(nik) {
+export function cekNIK(nik) {
 // Data wilayah & kodepos
 const U = {
 "provinsi": { 
@@ -7733,5 +7733,3 @@ message: e
 }
 return result;
 }
-
-export default cekNIK;
