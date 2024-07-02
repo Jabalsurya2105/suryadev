@@ -1,5 +1,6 @@
 import { basename } from 'path';
 import { Router } from 'express';
+import cekNIK from './ceknik.js';
 
 const router = new Router();
 var database = [];
@@ -203,6 +204,22 @@ creator: 'SuryaDev',
 message: 'data deleted successfully.'
 });
 });
+
+router.get('/api/ceknik', async (req, res) => {
+const { nik } = req.query;
+if (!nik) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'nik parameter is required'
+});
+if (isNaN(nik)) return res.status(400).json({
+status: 400,
+creator: 'SuryaDev',
+message: 'invalid nik!'
+});
+const result = await cekNIK(nik)
+res.json(result)
+})
 
 function timezone () {
 const today = new Date();
