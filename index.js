@@ -1,12 +1,8 @@
-import express from 'express';
-import cors from 'cors';
-import path from 'path'
-import ejs from 'ejs'
-import { fileURLToPath } from 'url';
-import apiRoutes from './script.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const express = require('express')
+const cors = require('cors')
+const path = require('path')
+const ejs = require('ejs')
+const apiRoutes = require('./script.js')
 
 const app = express();
 var database = [];

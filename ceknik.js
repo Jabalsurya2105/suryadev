@@ -19,7 +19,7 @@ function T(e, t) {
 let n; const r = typeof e; return "boolean" === r ? +e : "string" === r ? (n = parseInt(e, t || 10), isNaN(n) || !isFinite(n) ? 0 : n) : "number" === r && isFinite(e) ? 0 | e : 0
 }
 
-export default function cekNIK(nik) {
+function cekNIK(nik) {
 // Data wilayah & kodepos
 const U = {
 "provinsi": { 
@@ -7728,8 +7728,10 @@ console.error(e)
 result = {
 status: false,
 creator: 'SuryaDev',
-message: e
+message: String(e)
 };
 }
 return result;
 }
+
+module.exports = cekNIK;

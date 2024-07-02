@@ -1,6 +1,6 @@
-import { basename } from 'path';
-import { Router } from 'express';
-import cekNIK from './ceknik.js';
+const { basename } = require('path')
+const { Router } = require('express')
+const cekNIK = require('./ceknik.js')
 
 const router = new Router();
 var database = [];
@@ -251,4 +251,4 @@ var sDisplay = s > 0 ? s + (s == 1 ? ' detik' : ' detik') : '';
 return dDisplay + hDisplay + mDisplay + sDisplay;
 }
 
-export default router;
+module.exports = router;
