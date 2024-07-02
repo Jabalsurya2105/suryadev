@@ -217,7 +217,7 @@ status: 400,
 creator: 'SuryaDev',
 message: 'invalid nik!'
 });
-const result = await cekNIK(nik)
+const result = cekNIK(nik)
 res.json(result)
 })
 
