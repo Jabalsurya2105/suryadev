@@ -7728,7 +7728,7 @@ console.error(e)
 result = {
 status: false,
 creator: 'SuryaDev',
-message: "NIK tidak valid"
+message: String(e)
 };
 }
 return result;
